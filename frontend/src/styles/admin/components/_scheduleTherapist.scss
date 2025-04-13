@@ -1,0 +1,301 @@
+@import "../components/shared";
+
+// Specific styles for Schedule Therapist
+.schedule-therapist {
+  &__container {
+    @extend .admin-page;
+    padding: 24px;
+  }
+
+  &__header {
+    @extend .admin-page__header;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+
+    h1 {
+      font-size: 24px;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+    }
+
+    p {
+      color: #64748b;
+      margin: 0;
+    }
+
+    .date-picker-wrapper {
+      position: relative;
+
+      .calendar-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #64748b;
+        font-size: 16px;
+      }
+
+      .form-control {
+        padding-left: 35px;
+        width: 200px;
+        height: 40px;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+      }
+    }
+  }
+
+  &__controls {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .date-picker {
+      input {
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #1e293b;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+        }
+      }
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &-primary {
+        background: #3b82f6;
+        color: white;
+        border: none;
+
+        &:hover {
+          background: #2563eb;
+        }
+      }
+    }
+  }
+
+  &__grid {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .shifts {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      border-bottom: 1px solid #e2e8f0;
+
+      .shift-header {
+        padding: 16px;
+        background: #f8fafc;
+        border-right: 1px solid #e2e8f0;
+        font-weight: 500;
+        color: #1e293b;
+
+        &:first-child {
+          text-align: center;
+        }
+      }
+    }
+
+    .therapist-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      border-bottom: 1px solid #e2e8f0;
+
+      .therapist-info {
+        padding: 16px;
+        background: #f8fafc;
+        border-right: 1px solid #e2e8f0;
+
+        h3 {
+          margin: 0 0 4px 0;
+          font-size: 14px;
+          color: #1e293b;
+        }
+
+        p {
+          margin: 0;
+          font-size: 12px;
+          color: #64748b;
+        }
+      }
+
+      .shift-slot {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.available {
+          background: #dcfce7;
+          color: #15803d;
+        }
+
+        &.unavailable {
+          background: #fee2e2;
+          color: #dc2626;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &__table {
+    @extend .admin-page__table;
+
+    .status-badge {
+      &--morning {
+        @extend .status-badge;
+        background: #dcfce7;
+        color: #15803d;
+      }
+
+      &--evening {
+        @extend .status-badge;
+        background: #fef3c7;
+        color: #92400e;
+      }
+    }
+  }
+
+  &__modal {
+    @extend .admin-page__modal;
+
+    .form-group {
+      @extend .form-group;
+
+      .react-datepicker-wrapper {
+        width: 100%;
+      }
+    }
+
+    .btn {
+      @extend .btn;
+    }
+  }
+}
+
+// Modal styles
+.schedule-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  &__content {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      margin: 0 0 20px 0;
+      font-size: 20px;
+      color: #1e293b;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #64748b;
+      }
+
+      .shift-options {
+        display: flex;
+        gap: 12px;
+
+        label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 24px;
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .schedule-therapist {
+    &__controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__grid {
+      overflow-x: auto;
+
+      .shifts,
+      .therapist-row {
+        min-width: 600px;
+      }
+    }
+
+    &__header {
+      .admin-page__header-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+
+        .date-picker-wrapper {
+          width: 100%;
+
+          .form-control {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

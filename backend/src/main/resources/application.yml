@@ -1,0 +1,55 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+
+#    url: jdbc:mysql://localhost:3306/SkincareBooking
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    url: jdbc:mysql://08k2dy.stackhero-network.com:5824/root?serverTimezone=Asia/Ho_Chi_Minh&trustServerCertificate=true
+    username: root
+    password: mBJse72nICYyt6xE8OqrV1xqJBLMX8ap
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: Asia/Ho_Chi_Minh
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: bamboospa.skincare@gmail.com
+    password: pkklofhredozhdqn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    cache: false
+
+fcm:
+    credentials:
+      file:
+        path: ServiceKey.json
+
+
+jwt:
+  signerKey: "WpNCZp8lxQ3kmkhy66PYLlrZXjPWUNWkkL1kNUktafsDr53o2dmGb4wB1AX6Tz2S"

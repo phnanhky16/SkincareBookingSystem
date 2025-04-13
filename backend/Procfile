@@ -1,0 +1,1 @@
+web: java -jar target/skincare_booking_system-0.0.1-SNAPSHOT.jar

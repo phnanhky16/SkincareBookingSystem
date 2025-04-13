@@ -1,0 +1,292 @@
+@import "../../utils/variables";
+@import "./shared";
+
+// Specific styles for Users component
+.admin-page {
+  .role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+
+    &--admin {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    &--user {
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+  }
+
+  // Additional user-specific styles
+  &__modal {
+    .avatar-upload {
+      text-align: center;
+      margin-bottom: 20px;
+
+      .avatar-preview {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 12px;
+        border: 2px solid #e2e8f0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .upload-btn {
+        background: #f8fafc;
+        border: 1px dashed #e2e8f0;
+        padding: 8px 16px;
+        border-radius: 6px;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          border-color: #3b82f6;
+          color: #3b82f6;
+        }
+
+        input[type="file"] {
+          display: none;
+        }
+      }
+    }
+
+    .password-group {
+      position: relative;
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+          color: #64748b;
+        }
+      }
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .user-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 6px;
+        border-radius: 10px;
+        background: #e2e8f0;
+        color: #64748b;
+        font-size: 12px;
+        margin-left: 8px;
+      }
+
+      &:hover {
+        background: #f8fafc;
+        color: #3b82f6;
+      }
+
+      &.active {
+        background: #eff6ff;
+        color: #3b82f6;
+
+        .user-count {
+          background: #3b82f6;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .extra-info {
+    display: flex;
+    gap: 8px;
+
+    .experience-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      background: #e0f2fe;
+      color: #0284c7;
+    }
+  }
+
+  &__table {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+  }
+}
+
+.image-upload-container {
+  margin-top: 10px;
+  margin-bottom: 1rem;
+}
+
+.image-upload-input {
+  margin-bottom: 10px;
+}
+
+.image-preview {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.therapist-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.therapist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge--active {
+  background-color: #e6f4ea;
+  color: #1e7e34;
+}
+
+.status-badge--inactive {
+  background-color: #fbe9e7;
+  color: #d32f2f;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-btn {
+  background-color: #ffd700;
+  color: #000;
+}
+
+.key-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.restore-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+// Add responsive styles
+@media (max-width: 768px) {
+  .admin-page {
+    &__tabs {
+      flex-direction: column;
+      padding: 12px;
+
+      .tab-btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+}

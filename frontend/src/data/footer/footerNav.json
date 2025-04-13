@@ -1,0 +1,38 @@
+[
+  {
+    "title": "About",
+    "navLinks": [
+      {
+        "name": "Blog",
+        "path": "/blog"
+      },
+      {
+        "name": "Contacts",
+        "path": "/contact"
+      }
+    ]
+  },
+  {
+    "title": "Categories",
+    "navLinks": [
+      {
+        "name": "Services",
+        "path": "/service"
+      },
+      {
+        "name": "Therapists",
+        "path": "/therapists"
+      },
+      {
+        "name": "Survey",
+        "path": "/survey"
+      },
+      {
+        "name": "Booking",
+        "path": "/booking"
+      }
+     
+    ]
+  }
+ 
+]

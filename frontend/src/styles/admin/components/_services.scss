@@ -1,0 +1,349 @@
+@import "../../utils/variables";
+@import "./shared";
+
+// Specific styles for Services component that aren't covered in shared styles
+.admin-page {
+  .price-cell {
+    font-family: "Roboto Mono", monospace;
+    text-align: right;
+  }
+
+  .duration-cell {
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  &__modal {
+    .service-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .image-upload {
+      border: 2px dashed #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        border-color: #3b82f6;
+        background: #f8fafc;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      svg {
+        font-size: 24px;
+        color: #94a3b8;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: #64748b;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .image-preview {
+        max-width: 300px;
+        margin: 0 auto;
+
+        .service-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+
+      .upload-placeholder {
+        padding: 40px 20px;
+
+        svg {
+          color: #94a3b8;
+          margin-bottom: 12px;
+        }
+
+        p {
+          color: #64748b;
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  &__modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  &__modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  &__modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .image-preview {
+    margin-top: 10px;
+    max-width: 200px;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+
+  th {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: #f1f5f9;
+    }
+
+    .sort-indicator {
+      display: inline-block;
+      margin-left: 4px;
+      color: #3b82f6;
+    }
+  }
+
+  .search-box {
+    position: relative;
+    margin-bottom: 20px;
+
+    input {
+      width: 100%;
+      padding: 10px 40px 10px 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+    }
+  }
+
+  // Bảng dịch vụ
+  &__table {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 14px;
+        color: #1e293b;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+        white-space: nowrap;
+
+        &:hover {
+          background: #f1f5f9;
+        }
+      }
+
+      td {
+        vertical-align: middle;
+
+        &.description-cell {
+          max-width: 300px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        &.price-cell {
+          text-align: right;
+          font-family: "Roboto Mono", monospace;
+        }
+
+        &.duration-cell {
+          text-align: center;
+          white-space: nowrap;
+        }
+      }
+
+      // Hình ảnh dịch vụ
+      .service-image {
+        width: 120px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        background-color: #f3f4f6;
+        display: block;
+
+        // Fallback image khi ảnh không load được
+        &:not([src]) {
+          content: url("/images/fallback-service.png");
+        }
+      }
+    }
+
+    // Responsive styles cho bảng
+    @media (max-width: 768px) {
+      table {
+        th,
+        td {
+          font-size: 12px;
+          padding: 8px;
+        }
+
+        .service-image {
+          width: 100px;
+          height: 60px;
+        }
+      }
+    }
+  }
+
+  // Nút hành động
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+
+    button {
+      padding: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .edit-btn {
+      background: #e2e8f0;
+      color: #475569;
+
+      &:hover {
+        background: #cbd5e1;
+      }
+    }
+
+    .delete-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+
+      &:hover {
+        background: #fecaca;
+      }
+    }
+
+    .restore-btn {
+      background: #dcfce7;
+      color: #15803d;
+
+      &:hover {
+        background: #bbf7d0;
+      }
+    }
+  }
+}
+
+// Add responsive styles
+@media (max-width: 768px) {
+  .admin-page {
+    &__filters {
+      .search-box {
+        margin-bottom: 16px;
+      }
+    }
+
+    &__modal-content {
+      width: 95%;
+      margin: 10px;
+    }
+  }
+}
